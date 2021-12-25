@@ -37,9 +37,7 @@ const SingleVideo = () => {
     }
 
     let viewsTag = "";
-    if (level >= 0) {
-      viewsTag = `${video.views} views`
-    } else { viewsTag = "" };
+    viewsTag = `${video.views} views`
     // Tracks views based on page reload
     const updateMetrics = () => {
       const newView = (video.views + 1);
@@ -97,18 +95,15 @@ const SingleVideo = () => {
       <div>
         <Container>
           <Card className="text-center my-3">
-            <Card.Header as="h2" className="video-title">{video.title}</Card.Header>
-            <Card.Body className="video-body">
-              <Card.Title className="roboto-font">{video.publishDate}</Card.Title>
-              <video style={{ width: 660, height: "auto" }} controls>
+            <div>
+              <video style={{ width: "100%", height: "auto" }} controls>
                 <source src={video.cloudURL} type="video/mp4" />
               </video>
               <br />
-
+              {video.title} | {video.publishDate} | {viewsTag}
               {level >= 0 
-              ? (<p>
-                  {viewsTag}
-                  <span className="roboto-font"> {video.likes} like </span>
+              ? (<>
+                  <span className="roboto-font"> | {video.likes} like </span>
                   <button className='btn btn-outline-success btn-sm' disabled={disable} onClick={clickLike}>
                     <i className="fas fa-thumbs-up" />
                   </button>
@@ -116,10 +111,9 @@ const SingleVideo = () => {
                   <button className='btn btn-outline-warning btn-sm' disabled={disable} onClick={clickDislike}>
                     <i className="fas fa-thumbs-down" />
                   </button>
-                </p>)
+                </>)
               : ("")}
-
-            </Card.Body >
+            </div>
           </Card >
         </Container >
       </div >
