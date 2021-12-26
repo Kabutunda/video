@@ -23,23 +23,17 @@ const Profile = () => {
       {videos.map((video) => (
         <Container>
           <Card className="text-center my-3">
-            <Card.Header as="h2" className="video-title">
-              {video.title}
-            </Card.Header>
-            <Card.Body className="video-body">
-              <Card.Title className="roboto-font">
-                <i className="fas fa-calendar-alt"></i> {video.publishDate}
-              </Card.Title>
+            <div>
               <Link to={`/videos/${video._id}`}>
-                <video style={{ width: 660, height: "auto" }}>
+                <video style={{ width: "100%", height: "auto" }}>
                   <source src={video.cloudURL} type="video/mp4" />
                 </video>
               </Link>
-              <div className="roboto-font"><i className="fas fa-user"></i>  {Auth.getProfile().data.name}</div>
+              <div>{video.title} | {video.publishDate} | {video.views} views | {video.likes} like | {video.dislikes} dislike</div>
               <div>
-                <Link className="delete-trash" to={`/videosCrud/${video._id}`}><i className="fas fa-trash"></i></Link>
+                <Link className="delete-trash" to={`/videosCrud/${video._id}`}><button className="btn btn-outline-danger btn-sm">Delete <i className="fas fa-trash" /></button></Link><p/>
               </div>
-            </Card.Body>
+            </div>
           </Card>
         </Container>
       ))}

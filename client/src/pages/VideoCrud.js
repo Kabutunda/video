@@ -46,25 +46,22 @@ const VideoCrud = () => {
   return (
     <Container>
       <Card className="text-center my-3">
-        <Card.Header as="h2" className="video-title">
-          {video.title}
-        </Card.Header>
-        <Card.Body className="video-body">
-          <Card.Title className="roboto-font"> <i className="fas fa-calendar-alt"></i> {video.publishDate}</Card.Title>
-          <video style={{ width: 660, height: "auto" }} controls>
+        <div>
+          <video style={{ width: "100%", height: "auto" }} controls>
             <source src={video.cloudURL} type="video/mp4" />
           </video>
+          <div>{video.title} | {video.publishDate} | {video.views} views | {video.likes} like | {video.dislikes} dislike</div>
           <h2 className="roboto-font">Are you sure you want to delete this video?</h2>
           <button className="btn btn-outline-danger btn-sm" type="submit" onClick={deleteClick}>
             Yes
           </button>
           {/* Insert white space*/} &nbsp;
           <Link to="/me">
-            <button className="btn btn-outline-light btn-sm">
+            <button className="btn btn-outline-primary btn-sm">
               No
             </button>
-          </Link>
-        </Card.Body>
+          </Link><p/>
+        </div>
       </Card>
     </Container>
   );
