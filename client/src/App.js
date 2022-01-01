@@ -13,6 +13,7 @@ import VideoCrud from "./pages/VideoCrud"
 import Video from "./pages/Video";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Live from "./pages/Live";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CloudinaryUploadWidget from "./components/Upload";
@@ -50,6 +51,9 @@ function App() {
           </Route>
           <Route exact path="/login">
             <Login />
+          </Route>
+          <Route exact path="/live">
+            <Live />
           </Route>
           <Route exact path="/signup">
             <Signup />

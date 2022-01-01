@@ -33,7 +33,7 @@ const Header = () => {
           </Col>
           <Col md={4}>
             <div className="d-flex align-items-center justify-content-center justify-content-md-end">
-              <a className="nav-item nav-link" href="https://wgtvlive.herokuapp.com/streams/1"><button className="btn btn-outline-danger btn-sm">Live</button></a>
+              <Link className="nav-item nav-link" to="/live"><button className="btn btn-outline-danger btn-sm">Live</button></Link>
               {Auth.loggedIn() 
               ? ( <>
                 {level === 1 ? (<Link className="nav-item nav-link" to="/upload"><button className="btn btn-outline-warning btn-sm">Upload</button></Link>) : ("")}
