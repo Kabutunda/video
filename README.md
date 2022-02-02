@@ -18,10 +18,10 @@ This application is designed to be a video upload and streaming service specific
 
 It was created using a MERN-stack setup:
 
-- React as the front-end view
+- React.js as the front-end view
 - React-Bootstrap for styling
 - GraphQL with Node.js and Express.js servers
 - MongoDB and Mongoose ODM for database storage
-- Heroku for deployment
+- Heroku for server-side deployment
 - JWT (JSON WebTokens) for user authentication
 

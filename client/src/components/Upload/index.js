@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button';
 import Row from "react-bootstrap/Row";
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container'
-import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import ADD_VIDEO from "../../utils/mutations";
 import Auth from "../../utils/auth";
@@ -12,8 +10,7 @@ import Auth from "../../utils/auth";
 function CloudinaryUploadWidget() {
   const [title, setTitle] = useState("");
   const [URL, setURL] = useState("");
-  const [author, setAuthor] = useState("");
-  const [addVideo, { error }] = useMutation(ADD_VIDEO);
+  const [addVideo] = useMutation(ADD_VIDEO);
   // Upload widget courtesy of cloudinary
   const myWidget = window.cloudinary.createUploadWidget(
     {

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import { useMutation } from "@apollo/client";
 import { VIDEO_METRICS } from "../../utils/mutations";
 // Videos appearing on home page
 const VideoList = ({ videos }) => {
-  const [videoMetrics, { error }] = useMutation(VIDEO_METRICS);
+  const [videoMetrics] = useMutation(VIDEO_METRICS);
   // If there are no videos, "No Videos Yet!" message appears
   if (!videos.length) {
     return <h3 className="roboto-font2">No Videos Yet!</h3>;

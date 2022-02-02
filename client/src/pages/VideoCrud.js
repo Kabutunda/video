@@ -1,11 +1,10 @@
 import React from "react";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import Container from "react-bootstrap/Container";
 import Auth from "../utils/auth";
 import { QUERY_SINGLE_VIDEO } from "../utils/queries";
-import { REMOVE_VIDEO } from "../utils/mutations";
 import Card from "react-bootstrap/Card";
 
 const VideoCrud = () => {
@@ -15,7 +14,6 @@ const VideoCrud = () => {
     variables: { videoId: videoId },
   });
   // Delete video mutation
-  const [deleteVideo, { error }] = useMutation(REMOVE_VIDEO);
   const video = data?.video || {};
   if (loading) {
     return <div>Loading...</div>;
@@ -26,11 +24,7 @@ const VideoCrud = () => {
     if (!token) { // if not logged in, user can't delete video
       return false;
     }
-    try {
-      const { data } = await deleteVideo({
-        variables: { videoId }
-      })
-    } catch (err) {
+    try { } catch (err) {
       console.log(err)
     }
     if (!token) {

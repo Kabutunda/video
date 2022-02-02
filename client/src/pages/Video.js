@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
 import { QUERY_SINGLE_VIDEO } from "../utils/queries";
 import { VIDEO_METRICS, UPDATE_LIKES, UPDATE_DISLIKES } from "../utils/mutations";
@@ -17,9 +17,9 @@ const SingleVideo = () => {
     level = Auth.getProfile().data.level;
     userId = Auth.getProfile().data._id;
   };
-  const [videoMetrics, { error }] = useMutation(VIDEO_METRICS);
-  const [updateLikes, { err }] = useMutation(UPDATE_LIKES);
-  const [updateDislikes, { erro }] = useMutation(UPDATE_DISLIKES);
+  const [videoMetrics] = useMutation(VIDEO_METRICS);
+  const [updateLikes] = useMutation(UPDATE_LIKES);
+  const [updateDislikes] = useMutation(UPDATE_DISLIKES);
   // Queries singe video based on params video id
   const { loading, data } = useQuery(QUERY_SINGLE_VIDEO, {
     variables: { videoId: videoId },
